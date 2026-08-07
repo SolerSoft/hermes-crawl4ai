@@ -28,7 +28,7 @@ hermes config set web.extract_backend crawl4ai
 
 > [!IMPORTANT]
 > After installation, restart hermes so it reloads plugins.
-> `hermes gateway restart` only restarts the gateway and does not restart TUI
+> `hermes gateway restart` only restarts the gateway and does not restart TUI or
 > web dashboard. If you're using docker you'll need to use `compose down` and
 > `compose up -d`.
 
