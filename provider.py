@@ -146,7 +146,6 @@ class Crawl4AIWebSearchProvider(WebSearchProvider):
                 {
                     "key": "CRAWL4AI_URL",
                     "prompt": "Crawl4AI instance URL (e.g. http://crawl4ai:11235)",
-                    "url": "http://crawl4ai:11235",
                 },
                 {
                     "key": "CRAWL4AI_API_TOKEN",

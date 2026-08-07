@@ -18,12 +18,23 @@ It was created in response to the requirements described in
 
 ## Use With Hermes
 
-Install and enable the plugin with the Hermes CLI:
+Install the repository with the Hermes CLI:
 
 ```bash
 hermes plugins install SolerSoft/hermes-crawl4ai
-hermes plugins enable hermes-crawl4ai
+hermes plugins enable web-crawl4ai
+hermes config set web.extract_backend crawl4ai
 ```
+
+> [!IMPORTANT]
+> After installation, restart hermes so it reloads plugins.
+> `hermes gateway restart` only restarts the gateway and does not restart TUI
+> web dashboard. If you're using docker you'll need to use `compose down` and
+> `compose up -d`.
+
+> [!NOTE]
+> Repository name and plugin name differ. Install with
+> `SolerSoft/hermes-crawl4ai` but use `web-crawl4ai` for everything else.
 
 Hermes prompts for the required environment variables during installation. To
 configure them manually, set the following values in the Hermes environment
@@ -38,6 +49,15 @@ Your Crawl4AI service must be reachable at `CRAWL4AI_URL` and accept `POST /md`
 requests. The plugin sends the configured token as a bearer token when one is
 supplied.
 
+## Uninstall
+
+Remove the installed plugin by its manifest name, not its GitHub repository
+name:
+
+```bash
+hermes plugins remove web-crawl4ai
+```
+
 ## Plugin Behavior
 
 For each URL passed to `web_extract`, the provider requests filtered Markdown
@@ -48,7 +68,8 @@ results for other URLs.
 ## Troubleshooting
 
 - **Plugin not listed or loaded**: run `hermes plugins list`, then enable
-  `hermes-crawl4ai` with `hermes plugins enable hermes-crawl4ai`.
+  `web-crawl4ai` with `hermes plugins enable web-crawl4ai` and restart the
+  active Hermes user interface.
 - **`web_extract` errors**: verify `CRAWL4AI_URL` is reachable from Hermes and
   `CRAWL4AI_API_TOKEN` matches the token configured by your Crawl4AI service.
 

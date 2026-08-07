@@ -1,4 +1,4 @@
-name: hermes-crawl4ai
+name: web-crawl4ai
 version: 1.0.0
 description: "Crawl4AI web_extract provider for Hermes."
 author: SolerSoft
@@ -8,7 +8,6 @@ provides_web_providers:
 requires_env:
   - name: CRAWL4AI_URL
     description: "Base URL of your Crawl4AI instance"
-    url: http://crawl4ai:11235
   - name: CRAWL4AI_API_TOKEN
     description: "Bearer token created for your Crawl4AI instance"
     secret: true
