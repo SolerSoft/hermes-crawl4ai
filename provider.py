@@ -2,8 +2,7 @@
 
 Subclasses :class:`agent.web_search_provider.WebSearchProvider`. Extract-only
 — Crawl4AI renders and cleans arbitrary URLs but doesn't run web search, so
-``supports_search()`` returns False. Pair with the bundled SearXNG provider
-(or any other search-capable backend) for ``web_search`` calls.
+``supports_search()`` returns False.
 
 Uses Crawl4AI's ``/md`` endpoint, which returns already-filtered markdown as
 a plain string — simpler and more reliable than ``/crawl``, whose
@@ -17,7 +16,7 @@ Config keys this provider responds to::
 
 Env vars::
 
-    CRAWL4AI_URL=http://127.0.0.1:11235
+    CRAWL4AI_URL=http://crawl4ai:11235
     CRAWL4AI_API_TOKEN=<bearer token your Crawl4AI instance requires>
 """
 
@@ -146,13 +145,13 @@ class Crawl4AIWebSearchProvider(WebSearchProvider):
             "env_vars": [
                 {
                     "key": "CRAWL4AI_URL",
-                    "prompt": "Crawl4AI instance URL (e.g. http://localhost:11235)",
-                    "url": "https://github.com/unclecode/crawl4ai",
+                    "prompt": "Crawl4AI instance URL (e.g. http://crawl4ai:11235)",
+                    "url": "http://crawl4ai:11235",
                 },
                 {
                     "key": "CRAWL4AI_API_TOKEN",
                     "prompt": "Crawl4AI API bearer token",
-                    "url": "https://github.com/unclecode/crawl4ai",
+                    "secret": True,
                 },
             ],
         }
